@@ -7,4 +7,3 @@ const router = express.Router()
 router.get('/', controllers.getAllTrainings)
 
 export default router
-proba
