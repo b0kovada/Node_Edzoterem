@@ -1,4 +1,4 @@
-import Training from '../models/traning.js'
+import Training from '../models/training.js'
 
 
 export const getAddTraining = (req, res) => {
