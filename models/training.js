@@ -30,12 +30,12 @@ class Training {
     }
 
     save(){
-        const subjects = getFileConent()
-        subjects.push(this)
-        setFileConent(subjects)
+        const trainings = getFileConent()
+        trainings.push(this)
+        setFileConent(trainings)
     }
 
-    static getAllSubjects(){
+    static getAllTrainings(){
         return getFileConent()
     }
 }
