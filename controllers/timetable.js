@@ -18,6 +18,6 @@ export const getAllTrainings = (req, res) => {
     res.render('timetable.ejs', {
         pageTitle: 'Timetable',
         path: '/',
-        prods: Product.getAllTrainings()
+        trainings: Training.getAllTrainings()
     })
 }
