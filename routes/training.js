@@ -1,5 +1,5 @@
 import express from 'express'
-import * as controllers from '../controllers/training.js'
+import * as controllers from '../controllers/timetable.js'
 
 
 const router = express.Router()
