@@ -1,3 +1,69 @@
 <%- include('includes/header')%>
-    <h1>Working</h1>
-<%- include('includes/end')%>
+<header>
+    <h1>Edzőterem Órarend</h1>
+    <%- include('includes/navigation')%>
+</header>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Idő</th>
+                <th>Hétfő</th>
+                <th>Kedd</th>
+                <th>Szerda</th>
+                <th>Csütörtök</th>
+                <th>Péntek</th>
+                <th>Szombat</th>
+                <th>Vasárnap</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% const timeSlots = [
+                "10:00-11:00",
+                "11:00-12:00",
+                "12:00-13:00",
+                "13:00-14:00",
+                "14:00-15:00",
+                "15:00-16:00",
+                "16:00-17:00",
+                "17:00-18:00"
+            ]; %>
+            
+            <% timeSlots.forEach(time => { %>
+                <tr>
+                    <td><%= time %></td>
+                    <td>
+                        <% const mondayTraining = trainings.find(t => t.day === 'hétfő' && t.time === time); %>
+                        <%= mondayTraining ? mondayTraining.title + (mondayTraining.master ? ' (' + mondayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const tuesdayTraining = trainings.find(t => t.day === 'kedd' && t.time === time); %>
+                        <%= tuesdayTraining ? tuesdayTraining.title + (tuesdayTraining.master ? ' (' + tuesdayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const wednesdayTraining = trainings.find(t => t.day === 'szerda' && t.time === time); %>
+                        <%= wednesdayTraining ? wednesdayTraining.title + (wednesdayTraining.master ? ' (' + wednesdayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const thursdayTraining = trainings.find(t => t.day === 'csütörtök' && t.time === time); %>
+                        <%= thursdayTraining ? thursdayTraining.title + (thursdayTraining.master ? ' (' + thursdayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const fridayTraining = trainings.find(t => t.day === 'péntek' && t.time === time); %>
+                        <%= fridayTraining ? fridayTraining.title + (fridayTraining.master ? ' (' + fridayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const saturdayTraining = trainings.find(t => t.day === 'szombat' && t.time === time); %>
+                        <%= saturdayTraining ? saturdayTraining.title + (saturdayTraining.master ? ' (' + saturdayTraining.master + ')' : '') : '-' %>
+                    </td>
+                    <td>
+                        <% const sundayTraining = trainings.find(t => t.day === 'vasárnap' && t.time === time); %>
+                        <%= sundayTraining ? sundayTraining.title + (sundayTraining.master ? ' (' + sundayTraining.master + ')' : '') : '-' %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include('includes/end') %>

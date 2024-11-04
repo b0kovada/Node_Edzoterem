@@ -1,10 +1,12 @@
-import express from 'express'
-import * as controllers from '../controllers/timetable.js'
+// routes/admin.js
+import express from 'express';
+import * as controllers from '../controllers/timetable.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/add-training', controllers.getAddTraining)
+router.get('/add-training', controllers.getAddTraining);
+router.get('/delete-training', controllers.getDeleteTraining);
+router.post('/add-training', controllers.postAddTraining);
+router.post('/delete-training', controllers.postDeleteTraining);
 
-router.post('/add-training', controllers.postAddTraining)
-
-export default router
+export default router;

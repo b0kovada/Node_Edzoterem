@@ -1,0 +1,36 @@
+<%- include('includes/header') %>
+<header>
+    <h1>Edzések törlése</h1>
+    <%- include('includes/navigation') %>
+</header>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Cím</th>
+                <th>Nap</th>
+                <th>Idő</th>
+                <th>Edző</th>
+                <th>Művelet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% trainings.forEach((training, index) => { %>
+                <tr>
+                    <td><%= training.title %></td>
+                    <td><%= training.day %></td>
+                    <td><%= training.time %></td>
+                    <td><%= training.master %></td>
+                    <td>
+                        <form action="/admin/delete-training" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= index %>">
+                            <button type="submit">Törlés</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include('includes/end') %>
