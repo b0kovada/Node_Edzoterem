@@ -1,4 +1,3 @@
-// routes/admin.js
 import express from 'express';
 import * as controllers from '../controllers/timetable.js';
 
